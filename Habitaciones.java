@@ -1,10 +1,10 @@
-public class Habitaciones { 
-    private String Individual, Matrimonial , Doble , Cuadruple , Suite;
+public class Habitaciones {
+    private String Individual, Matrimonial, Doble, Cuadruple, Suite;
 
     public Habitaciones() {
     }
-    
-    public void cotizar(){
-    
+
+    public void cotizar() {
+
     }
 }

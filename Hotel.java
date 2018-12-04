@@ -1,3 +1,4 @@
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 public class Hotel {
 
@@ -5,8 +6,6 @@ public class Hotel {
         ArchivoEntrada a = new ArchivoEntrada();
         a.Inicializar_in();
 
-        
-        
     }
-    
+
 }

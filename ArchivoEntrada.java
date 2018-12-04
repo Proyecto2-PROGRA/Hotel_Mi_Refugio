@@ -1,5 +1,4 @@
-import java.io.FileWriter;
-import java.io.FileReader;
+import java.io.*;
 
 public class ArchivoEntrada extends Persona {
     protected int ValorHotel;
@@ -9,45 +8,39 @@ public class ArchivoEntrada extends Persona {
     protected String Servicio;
     protected int Menu;
 
-public ArchivoEntrada() {
-}
-
-public void Inicializar_in(){
-    try {
-        FileWriter fichero = new FileWriter("inicializar.txt");
-        fichero.write("Holaaaaaaaaaaaaaa");
-        fichero.close();
-        
-
-
-    } catch (Exception e) {
-        //TODO: handle exception
-        
+    public ArchivoEntrada() {
     }
-    try {
-        FileReader lector = new FileReader("inicializar.txt");
-        bufferedReader BR = new BufferdReader (lector);
-        System.out.println(BR.redLines());
-    } catch (Exception e) {
-        //TODO: handle exception
+
+    public void Inicializar_in() {
+        try {
+            FileWriter fichero = new FileWriter("inicializar.txt");
+            fichero.write("Holaaaaaaaaaaaaaa");
+            fichero.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
+        }
+        try {
+            FileReader lector = new FileReader("inicializar.txt");
+            BufferedReader BR = new BufferedReader(lector);
+            System.out.println(BR.readLine());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            // TODO: handle exception
+        }
+
     }
-    
-    
-    
-}
 
-public void Precios_in(){
-    
-    
-}
+    public void Precios_in() {
 
-public void Operaciones_in(){
-    Operaciones o = new Operaciones();
-    
-    o.Comer();
-    
-}
+    }
 
+    public void Operaciones_in() {
+        Operaciones o = new Operaciones();
 
+        o.Comer();
+
+    }
 
 }
