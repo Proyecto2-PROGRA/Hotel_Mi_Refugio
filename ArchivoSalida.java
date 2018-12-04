@@ -4,18 +4,15 @@ public class ArchivoSalida extends ArchivoEntrada {
 
     public ArchivoSalida(int Estadia) {
         this.Estadia = Estadia;
-        
+
     }
 
     public ArchivoSalida() {
     }
-    public void Reservaciones_out(){
+
+    public void Reservaciones_out() {
         ArchivoSalida s = new ArchivoSalida();
-        
-        
+
     }
-    
-    
-    
-    
+
 }
