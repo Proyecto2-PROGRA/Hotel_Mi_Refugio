@@ -1,4 +1,5 @@
 import java.io.FileWriter;
+import java.io.FileReader;
 
 public class ArchivoEntrada extends Persona {
     protected int ValorHotel;
@@ -13,19 +14,18 @@ public ArchivoEntrada() {
 
 public void Inicializar_in(){
     try {
-        FileWriter fichero = new FileWriter("inicializar.in.txt");
+        FileWriter fichero = new FileWriter("inicializar.txt");
         fichero.write("Holaaaaaaaaaaaaaa");
-        fichero.write("Hola mundo");
         fichero.close();
         
 
-        
+
     } catch (Exception e) {
         //TODO: handle exception
         
     }
     try {
-        FileReader lector = new FileReader("inicializar.in.txt");
+        FileReader lector = new FileReader("inicializar.txt");
         bufferedReader BR = new BufferdReader (lector);
         System.out.println(BR.redLines());
     } catch (Exception e) {
