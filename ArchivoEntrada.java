@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 public class ArchivoEntrada extends Persona {
     Date fecha = new Date();
@@ -30,7 +31,7 @@ public class ArchivoEntrada extends Persona {
     public void Inicializar_in() {
         ValorHotel = "100250.00";
         try {
-            FileWriter fichero = new FileWriter("inicializar.txt");
+            FileWriter fichero = new FileWriter("inicializar.in.txt");
             fichero.append(ValorHotel);
             fichero.write("\r\n");
 
@@ -102,7 +103,7 @@ public class ArchivoEntrada extends Persona {
 
         }
         try {
-            FileReader lector = new FileReader("inicializar.txt");
+            FileReader lector = new FileReader("inicializar.in.txt");
             BufferedReader BR = new BufferedReader(lector);
 
             while ((cadena = BR.readLine()) != null) {
@@ -124,7 +125,40 @@ public class ArchivoEntrada extends Persona {
     public void Operaciones_in() {
         Operaciones o = new Operaciones();
 
-        o.Comer();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el numero solicitado: ");
+        int num_case = sc.nextInt();
+
+        switch (num_case) {
+            case 0:
+                o.FinalizarDia();
+                break;
+            case 1:
+                
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+                
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                break;
+            case 7:
+
+                break;
+        
+            default:
+                break;
+        }
+        sc.close();
 
     }
 
