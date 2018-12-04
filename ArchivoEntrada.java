@@ -15,9 +15,10 @@ public class ArchivoEntrada extends Persona {
     protected int NumeroHabitaciones;
     protected int TipoDeHabitacion;
     protected int Menu;
+    protected int cont;
 
     
-    List<String> ListaTipoHabitacion = new ArrayList<>();
+  
 
 
     public ArchivoEntrada() {
@@ -28,40 +29,70 @@ public class ArchivoEntrada extends Persona {
         Fecha = "22 10 2018";
         try {
             FileWriter fichero = new FileWriter("inicializar.txt");
-            fichero.write(ValorHotel);
-            fichero.append("\r\n"); 
+            fichero.append(ValorHotel);
+            fichero.write("\r\n"); 
 
             fichero.write(Fecha);
             fichero.append("\r\n");
 
             NumeroPiso = (int) (Math.random() * 10) + 1;
+            List<String>[] ListaTipoHabitacion = new List[NumeroPiso];
+
+
 
             String n_1 = Integer.toString(NumeroPiso);
-            fichero.write(" "+n_1);
-            fichero.append("\r\n"); 
+            
 
 
             for (int x=0; x < NumeroPiso;x++){
                 NumeroHabitaciones = (int) (Math.random() * 10) + 1;
-                ListaTipoHabitacion.get(x).add(new ArrayList<String>());
+                
+                List<String> ListaHabitacion = new ArrayList<>();
 
                 for(int i=0; i < NumeroHabitaciones; i++){
                     TipoDeHabitacion =(int) (Math.random() * 5) + 1;
                     String Habitacion = Integer.toString(TipoDeHabitacion);
                     
-                    ListaTipoHabitacion.get(i).add(Habitacion);
+                    ListaHabitacion.add(Habitacion);
+                    cont++;
                     
                 }
-
-                /*
-                String n = Integer.toString(NumeroHabitaciones);
-                fichero.write(n);
-                */
-                fichero.append("\r\n");
+                ListaTipoHabitacion[x] = ListaHabitacion;
+                
+                
 
             }
-
+            String contador = Integer.toString(cont);
+            fichero.write(contador + " ");
+            fichero.write(n_1);
             
+            
+            for(int x=0;x<NumeroPiso;x++ ){
+                List<String> LH = new ArrayList<>();
+
+                System.out.print(ListaTipoHabitacion[x].size()+" ");
+                
+
+                LH.addAll(ListaTipoHabitacion[x]);
+
+                for(int y=0; y<ListaTipoHabitacion[x].size();y++){
+                    System.out.print(LH.get(y)+" ");
+                    if("1" ==LH.get(y)){
+                        System.out.print("INDIV"+ " ");
+                    }else if(LH.get(y)=="2"){
+                        System.out.print("INDIV"+ " ");
+                    }else if(LH.get(y)=="3"){
+                        System.out.print("INDIV"+ " ");
+                    }else if(LH.get(y)=="4"){
+                        System.out.print("INDIV"+ " ");
+                    }else if(LH.get(y)=="5"){
+                        System.out.print("INDIV"+ " ");
+                    }
+                }
+                System.out.println();
+                
+                
+            }
             
 
             
@@ -81,7 +112,8 @@ public class ArchivoEntrada extends Persona {
             while((cadena=BR.readLine())!=null){
                 System.out.println(cadena);
             }
-
+            
+        
     
             BR.close();
         } catch (Exception ex) {
