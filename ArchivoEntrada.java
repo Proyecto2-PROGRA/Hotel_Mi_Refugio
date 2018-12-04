@@ -18,6 +18,8 @@ public void Inicializar_in(){
         fichero.write("Hola mundo");
         fichero.close();
         
+
+        
     } catch (Exception e) {
         //TODO: handle exception
         
