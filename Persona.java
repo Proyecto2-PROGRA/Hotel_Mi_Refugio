@@ -1,6 +1,3 @@
-
-package proyectohotel;
-
 public class Persona {
     private String Nombre,Apellido;
     private char Categoria;
