@@ -45,7 +45,7 @@ public class ArchivoEntrada extends Persona {
 
 
             for (int x=0; x < NumeroPiso;x++){
-                NumeroHabitaciones = (int) (Math.random() * 10) + 1;
+                NumeroHabitaciones = (int) (Math.random() * 5) + 1;
                 
                 List<String> ListaHabitacion = new ArrayList<>();
 
@@ -65,31 +65,39 @@ public class ArchivoEntrada extends Persona {
             String contador = Integer.toString(cont);
             fichero.write(contador + " ");
             fichero.write(n_1);
-            
+            fichero.append("\r\n");
+
             
             for(int x=0;x<NumeroPiso;x++ ){
                 List<String> LH = new ArrayList<>();
 
-                System.out.print(ListaTipoHabitacion[x].size()+" ");
+                fichero.write(ListaTipoHabitacion[x].size()+" ");
                 
 
                 LH.addAll(ListaTipoHabitacion[x]);
 
                 for(int y=0; y<ListaTipoHabitacion[x].size();y++){
-                    System.out.print(LH.get(y)+" ");
-                    if("1" ==LH.get(y)){
-                        System.out.print("INDIV"+ " ");
-                    }else if(LH.get(y)=="2"){
-                        System.out.print("INDIV"+ " ");
-                    }else if(LH.get(y)=="3"){
-                        System.out.print("INDIV"+ " ");
-                    }else if(LH.get(y)=="4"){
-                        System.out.print("INDIV"+ " ");
-                    }else if(LH.get(y)=="5"){
-                        System.out.print("INDIV"+ " ");
+                    
+                    String var = LH.get(y);
+    
+                    if(var.equals("1")){
+                        fichero.write("INDIV"+ " ");
+
+                    }else if(var.equals("2")){
+                        fichero.write("MATRI"+ " ");
+
+                    }else if(var.equals("3")){
+                        fichero.write("DOBLE"+ " ");
+
+                    }else if(var.equals("4")){
+                        fichero.write("CUADR"+ " ");
+
+                    }else if(var.equals("5")){
+                        fichero.write("SUITE"+ " ");
+
                     }
                 }
-                System.out.println();
+                fichero.append("\r\n");
                 
                 
             }
