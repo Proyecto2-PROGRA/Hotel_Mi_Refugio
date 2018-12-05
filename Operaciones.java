@@ -1,4 +1,5 @@
 
+import java.io.*;
 public class Operaciones extends ArchivoEntrada {
 
     public Operaciones() {
@@ -6,16 +7,19 @@ public class Operaciones extends ArchivoEntrada {
 
     public void FinalizarDia() {
         try {
-            FileReader lector = new FileReader(inicializar.in.txt);
-            BufferedReade BR = new BufferedReader(lector);
-            cadena = BR.readline(1);
-            System.out.println(cadena);
-            System.out.println("Hola Mundo");
+            FileReader lector = new FileReader("inicializar.in.txt");
+            BufferedReader BR = new BufferedReader(lector);
+
+            cadena = BR.readLine();
+            cadena = BR.readLine();
+            String cadena_dia = cadena.substring(0,2);
+
+            System.out.println(cadena_dia);
+
             BR.close();
-        } 
-        
-        catch (Exception e) {
-            //TODO: handle exception
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            
         }
     }
 

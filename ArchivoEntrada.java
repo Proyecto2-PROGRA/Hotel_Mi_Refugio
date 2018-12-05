@@ -24,6 +24,7 @@ public class ArchivoEntrada extends Persona {
     protected int TipoDeHabitacion;
     protected int Menu;
     protected int cont;
+    protected int num_case;
 
     public ArchivoEntrada() {
     }
@@ -113,7 +114,7 @@ public class ArchivoEntrada extends Persona {
             BR.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-            // TODO: handle exception
+            
         }
 
     }
@@ -124,42 +125,20 @@ public class ArchivoEntrada extends Persona {
 
     public void Operaciones_in() {
         Operaciones o = new Operaciones();
-
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese el numero solicitado: ");
-        int num_case = sc.nextInt();
+        System.out.println("Ingrese la opcion");
+        num_case = sc.nextInt();
 
         switch (num_case) {
             case 0:
                 o.FinalizarDia();
                 break;
-            case 1:
-                
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
-                
-                break;
-            case 5:
-
-                break;
-            case 6:
-
-                break;
-            case 7:
-
-                break;
         
             default:
                 break;
         }
+        
         sc.close();
-
     }
 
 }
