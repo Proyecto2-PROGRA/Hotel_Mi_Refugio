@@ -1,7 +1,7 @@
 public class Persona {
     private String Nombre, Apellido;
     private char Categoria;
-    private int CedulaIdentidad;
+    private String CedulaIdentidad;
 
     public Persona() {
     }

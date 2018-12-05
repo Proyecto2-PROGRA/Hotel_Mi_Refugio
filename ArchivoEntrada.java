@@ -121,6 +121,55 @@ public class ArchivoEntrada extends Persona {
 
     public void Precios_in() {
 
+        Habitaciones h = new Habitaciones();
+
+        String Individual = h.getIndividual();
+        String Doble = h.getDoble();
+        String Matrimonial = h.getMatrimonial();
+        String Cuadruple = h.getCuadruple();
+        String Suite = h.getSuite();
+
+        Servicios s = new Servicios();
+        String Cam_A = s.getCam_A();
+        String Caj_F = s.getCaj_F();
+        String Esp_C = s.getEsp_C();
+        String Lom_M = s.getLom_M();
+        String Jug_L = s.getJug_L();
+        String Malta = s.getMalta();
+
+        try {
+            FileWriter fichero = new FileWriter("Operaciones.in.txt");
+            fichero.write("5 2 4");
+
+            fichero.write("\nINDIV: " + Individual);
+            fichero.write("\nDOBLE: " + Doble);
+            fichero.write("\nMATRI: " + Matrimonial);
+            fichero.write("\nCUADR: " + Cuadruple);
+            fichero.write("\nSUITE: " + Suite);
+
+            fichero.write("\nCAM_A:  " + Cam_A + " Cama dicional");
+            fichero.write("\nCAJ_F:  " + Caj_F + " Caja Fuerte");
+            fichero.write("\nESP_C:  " + Esp_C + " Espaguetis a la Carbonara");
+            fichero.write("\nLOM_M:  " + Lom_M + " Lomito a la Mostaza");
+            fichero.write("\nJUG_L:  " + Jug_L + " Jugo light");
+            fichero.write("\nMALTA:   " + Malta + " Malta");
+
+            fichero.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        try {
+
+            FileReader lector = new FileReader("Operaciones.in.txt");
+            BufferedReader BR = new BufferedReader(lector);
+
+            while ((cadena = BR.readLine()) != null) {
+                System.out.println(cadena);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     public void Operaciones_in() {
@@ -130,12 +179,42 @@ public class ArchivoEntrada extends Persona {
         num_case = sc.nextInt();
 
         switch (num_case) {
+<<<<<<< HEAD
             case 0:
                 o.FinalizarDia();
                 break;
         
             default:
                 break;
+=======
+        case 0:
+            o.FinalizarDia();
+            break;
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        case 4:
+
+            break;
+        case 5:
+
+            break;
+        case 6:
+
+            break;
+        case 7:
+
+            break;
+
+        default:
+            break;
+>>>>>>> 82e0919bc7623aab2d519f704d7ab9c0fa25b972
         }
         
         sc.close();

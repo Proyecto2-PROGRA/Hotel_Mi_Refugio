@@ -6,6 +6,7 @@ public class Operaciones extends ArchivoEntrada {
     }
 
     public void FinalizarDia() {
+<<<<<<< HEAD
         try {
             FileReader lector = new FileReader("inicializar.in.txt");
             BufferedReader BR = new BufferedReader(lector);
@@ -21,6 +22,9 @@ public class Operaciones extends ArchivoEntrada {
             ex.printStackTrace();
             
         }
+=======
+
+>>>>>>> 82e0919bc7623aab2d519f704d7ab9c0fa25b972
     }
 
     public void Reservar() {
@@ -41,7 +45,6 @@ public class Operaciones extends ArchivoEntrada {
 
     public void Comer() {
 
-        
     }
 
     public void SolicitarServicios() {
