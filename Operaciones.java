@@ -5,18 +5,7 @@ public class Operaciones extends ArchivoEntrada {
     }
 
     public void FinalizarDia() {
-        try {
-            FileReader lector = new FileReader(inicializar.in.txt);
-            BufferedReade BR = new BufferedReader(lector);
-            cadena = BR.readline(1);
-            System.out.println(cadena);
-            System.out.println("Hola Mundo");
-            BR.close();
-        } 
-        
-        catch (Exception e) {
-            //TODO: handle exception
-        }
+
     }
 
     public void Reservar() {
@@ -37,7 +26,6 @@ public class Operaciones extends ArchivoEntrada {
 
     public void Comer() {
 
-        
     }
 
     public void SolicitarServicios() {
