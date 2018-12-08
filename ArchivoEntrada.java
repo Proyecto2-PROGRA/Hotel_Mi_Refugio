@@ -1,17 +1,29 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class ArchivoEntrada extends Persona {
+
+    /*
     Date fecha = new Date();
     SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy");
     String fechanueva = sdf.format(fecha);
+    */
 
+    Calendar fecha = Calendar.getInstance();
+
+    protected int anio = fecha.get(Calendar.YEAR);
+    protected int mes = fecha.get(Calendar.MONTH)+1;
+    protected int dia = fecha.get(Calendar.DAY_OF_MONTH);
+    
+    
+    
     protected String ValorHotel;
-    protected String Fecha = fechanueva.toString();
+    //protected String Fecha = fechanueva.toString();
     protected String Habitaciones;
     protected String Piso;
     protected String Servicio;
@@ -30,13 +42,14 @@ public class ArchivoEntrada extends Persona {
     }
 
     public void Inicializar_in() {
+        fecha.add(Calendar.MONTH, 2);
         ValorHotel = "100250.00";
         try {
             FileWriter fichero = new FileWriter("inicializar.in.txt");
             fichero.append(ValorHotel);
             fichero.write("\r\n");
 
-            fichero.write(Fecha);
+            fichero.write(anio + " " + mes+ " " + dia);
             fichero.append("\r\n");
 
             NumeroPiso = (int) (Math.random() * 10) + 1;
@@ -176,17 +189,10 @@ public class ArchivoEntrada extends Persona {
         Operaciones o = new Operaciones();
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese la opcion");
-        num_case = sc.nextInt();
+        num_case = 0;
 
         switch (num_case) {
-<<<<<<< HEAD
-            case 0:
-                o.FinalizarDia();
-                break;
-        
-            default:
-                break;
-=======
+
         case 0:
             o.FinalizarDia();
             break;
@@ -214,7 +220,6 @@ public class ArchivoEntrada extends Persona {
 
         default:
             break;
->>>>>>> 82e0919bc7623aab2d519f704d7ab9c0fa25b972
         }
         
         sc.close();
