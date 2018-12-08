@@ -174,50 +174,68 @@ public class ArchivoEntrada extends Persona {
 
     public void Operaciones_in() {
         Operaciones o = new Operaciones();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese la opcion");
-        num_case = sc.nextInt();
-
-        switch (num_case) {
-<<<<<<< HEAD
-            case 0:
-                o.FinalizarDia();
-                break;
-        
-            default:
-                break;
-=======
-        case 0:
-            o.FinalizarDia();
-            break;
-        case 1:
-
-            break;
-        case 2:
-
-            break;
-        case 3:
-
-            break;
-        case 4:
-
-            break;
-        case 5:
-
-            break;
-        case 6:
-
-            break;
-        case 7:
-
-            break;
-
-        default:
-            break;
->>>>>>> 82e0919bc7623aab2d519f704d7ab9c0fa25b972
-        }
-        
-        sc.close();
+        Scanner entrada = new Scanner(System.in);
+ 
+        int op;
+        do{
+            System.out.println("\t***************************************");
+            System.out.println("\t           MENU OPERACIONES             ");
+            System.out.println("\t***************************************");
+            System.out.println("\t 1. Finalizar Dia");
+            System.out.println("\t 2. Reservar ");
+            System.out.println("\t 3. Cancelar una reservación");
+            System.out.println("\t 4. Realizar el Check-in ");
+            System.out.println("\t 5. Realizar el Check-out ");
+            System.out.println("\t 6. Comer en el restaurante ");
+            System.out.println("\t 7. Solicitar servicios ");
+            System.out.println("\t 8. Reportes ");
+            System.out.println("\t 9. Salir  ");
+            System.out.println("\t***************************************");
+            System.out.print("\tIngrese una opcion: ");
+            op = entrada.nextInt();
+ 
+            switch(op){
+                
+                case 1: 
+                        o.FinalizarDia();
+                        break;
+                        
+                case 2: 
+                        o.Reservar();
+                        break;
+                        
+                case 3: 
+                        o.Cancelar();
+                        break;
+                        
+                case 4: 
+                        o.Chek_in();
+                        break;
+                        
+                case 5: 
+                        o.Chek_out();
+                        break;
+                        
+                case 6: 
+                        o.Comer();
+                        break;
+                        
+                case 7: 
+                        o.SolicitarServicios();
+                        break;
+                case 8: 
+                        o.Reportes();
+                        break;
+                case 9: 
+                        
+                        break;
+                        
+                default:
+                    System.out.println(" Opcion no valida.");
+            }
+ 
+        }while(op!=9);   
     }
+        
 
 }
