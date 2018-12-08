@@ -178,10 +178,11 @@ public class ArchivoEntrada extends Persona {
             while ((cadena = BR.readLine()) != null) {
                 System.out.println(cadena);
             }
+            BR.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
+        
     }
 
     public void Operaciones_in() {

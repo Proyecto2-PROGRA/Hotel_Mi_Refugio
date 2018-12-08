@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.Date;
+import java.util.Calendar;
 
 
 public class Operaciones extends ArchivoEntrada {
@@ -7,12 +9,12 @@ public class Operaciones extends ArchivoEntrada {
     }
 
     public void FinalizarDia() {
-
+        
 
         fecha.add(Calendar.DAY_OF_WEEK, 1);
         dia = fecha.get(Calendar.DAY_OF_MONTH);
-        
-        System.out.println("Finalizo el dia");
+
+        System.out.println(dia + " "+mes+" "+ anio);
 
 
     }
