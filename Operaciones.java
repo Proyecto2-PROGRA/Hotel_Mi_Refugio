@@ -41,7 +41,7 @@ public class Operaciones extends ArchivoEntrada {
         String mes_llegada;
         String anio_llegada;
         
-        dia_llegada = IngresoFecha("aa");
+        dia_llegada = IngresoFecha("dd");
         mes_llegada = IngresoFecha("mm");
         anio_llegada = IngresoFecha("aaaa");
         
@@ -98,9 +98,9 @@ public class Operaciones extends ArchivoEntrada {
                 }
             }
         } while (bandera!=true);
-////////////////////////////////////////////////////////////////////  
+  
     int op_edad;
-        for(int i=0; i <= personas; i++){
+        for(int i=0; i < personas; i++){
 
             if(i==0) {
                 System.out.print("Ingrese el nombre del titular: ");
@@ -167,6 +167,7 @@ public class Operaciones extends ArchivoEntrada {
         SimpleDateFormat df;
         Date testDate;
         String date;
+        bandera=false;
         Scanner sc = new Scanner(System.in);
         do {
             System.out.println("Introduzca la fecha con formato "+ formato );
@@ -190,7 +191,8 @@ public class Operaciones extends ArchivoEntrada {
                 testDate = df.parse(date);
                 System.out.println("Ahora hemos creado un objeto date con la fecha indicada, "+testDate);
             } catch (Exception e){ System.out.println("invalid format");
-                bandera=false;}
+                bandera=false;
+            }
     
             if (!df.format(testDate).equals(date)){
                 System.out.println("invalid date!!");
