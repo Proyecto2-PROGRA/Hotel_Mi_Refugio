@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.util.Date;
 import java.util.Calendar;
@@ -44,7 +45,7 @@ public class Operaciones extends ArchivoEntrada {
         dia_llegada = IngresoFecha("aa");
         mes_llegada = IngresoFecha("mm");
         anio_llegada = IngresoFecha("aaaa");
-        
+        System.out.println(dia_llegada+" "+mes_llegada+" "+anio_llegada);
 
 
         int op;
@@ -100,15 +101,16 @@ public class Operaciones extends ArchivoEntrada {
         } while (bandera!=true);
 ////////////////////////////////////////////////////////////////////  
     int op_edad;
-        for(int i=0; i <= personas; i++){
+        for(int i=0; i < personas; i++){
 
             if(i==0) {
                 System.out.print("Ingrese el nombre del titular: ");
                 titular = entrada.next();
                 System.out.print("Ingrese el RUT del titular: ");
                 rut_titular = entrada_1.nextInt();
+                
             }
-            else{
+            else if(i!=0){
                 System.out.println("Ingresar si es adulto o niño(menor de 10)");
                 System.out.println("1. Adulto");
                 System.out.println("2. Niño");
@@ -168,6 +170,7 @@ public class Operaciones extends ArchivoEntrada {
         Date testDate;
         String date;
         Scanner sc = new Scanner(System.in);
+        bandera=false;
         do {
             System.out.println("Introduzca la fecha con formato "+ formato );
             
@@ -177,7 +180,7 @@ public class Operaciones extends ArchivoEntrada {
                 df = new SimpleDateFormat("dd");
             }
             else if (formato.equals("mm")) {
-                df = new SimpleDateFormat("mm");
+                df = new SimpleDateFormat("MM");
 
             } else {
                 df = new SimpleDateFormat("yyyy");
@@ -201,7 +204,9 @@ public class Operaciones extends ArchivoEntrada {
                 bandera=true;
             }
         } while (bandera!=true);
+        
         return fecha;
 
     }
+  
 }
