@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class ArchivoEntrada extends Persona {
-
+    
     /*
     Date fecha = new Date();
     SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy");
@@ -42,6 +42,13 @@ public class ArchivoEntrada extends Persona {
     }
 
     public void Inicializar_in() {
+        try {
+            FileWriter fichero = new FileWriter("Reservar.csv");
+            fichero.append("Nombre;Apellido;Rut;Grupo;FechaEntrada;FechaSalida;Hora");
+            fichero.write("\r\n");
+           } catch (IOException ex) {
+        }
+        
         ValorHotel = "100250.00";
         try {
             FileWriter fichero = new FileWriter("inicializar.in.txt");
