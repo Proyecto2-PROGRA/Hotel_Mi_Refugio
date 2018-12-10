@@ -184,7 +184,7 @@ public class Operaciones extends ArchivoEntrada {
     public void Cancelar() throws IOException  {
         
          BufferedReader in;
-        try {
+         try {
             in = new BufferedReader(new FileReader("Reservar.csv"));
             String line=" ";
              
@@ -193,20 +193,30 @@ public class Operaciones extends ArchivoEntrada {
              String request = scanner.next();
              while((line = in.readLine())!= null){
                 if(line.contains(request)){
+                    bandera=true;
                  String[] campos = line.split(";");
                      System.out.print(campos[2]);
                      System.out.println("\n");
                      }
+                
+            }
+             
+             if(bandera==false){
+                 
+                 
+                 System.out.println("no se encontro lo solicitado");
+                 
              }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Operaciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void Chek_in() {
-
+    public void Chek_in()throws IOException {
+        int minuto = fecha.get(Calendar.MINUTE);
+        int hora = fecha.get(Calendar.HOUR_OF_DAY);
         BufferedReader in;
-        try {
+         try {
             in = new BufferedReader(new FileReader("Reservar.csv"));
             String line=" ";
              
@@ -215,15 +225,20 @@ public class Operaciones extends ArchivoEntrada {
              String request = scanner.next();
              while((line = in.readLine())!= null){
                 if(line.contains(request)){
+                    bandera=true;
                  String[] campos = line.split(";");
-                     System.out.print(campos[2]);
-                     System.out.println("\n");
+                     System.out.println(campos[2]+ " "+hora+":"+minuto);
+                     System.out.println("Check-in Realizado con exito");
                      }
+                
+            }
+             
+             if(bandera==false){
+                 
+                 
+                 System.out.println("no se encontro lo solicitado");
+                 
              }
-             int minuto = fecha.get(Calendar.MINUTE);
-            int hora = fecha.get(Calendar.HOUR_OF_DAY);
-
-            System.out.println(campos[2]+ " "+hora+":"+minuto);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Operaciones.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -231,7 +246,10 @@ public class Operaciones extends ArchivoEntrada {
 
     }
 
-    public void Chek_out() {
+    public void Chek_out()throws IOException {
+        bandera=false;
+        int minuto = fecha.get(Calendar.MINUTE);
+        int hora = fecha.get(Calendar.HOUR_OF_DAY);
         BufferedReader in;
         try {
             in = new BufferedReader(new FileReader("Reservar.csv"));
@@ -242,15 +260,22 @@ public class Operaciones extends ArchivoEntrada {
              String request = scanner.next();
              while((line = in.readLine())!= null){
                 if(line.contains(request)){
+                    bandera=true;
                  String[] campos = line.split(";");
-                     System.out.print(campos[2]);
-                     System.out.println("\n");
+                     System.out.println(campos[2]+ " "+hora+":"+minuto);
+                     System.out.println("Check-out Realizado con exito");
                      }
+                
             }
-            int minuto = fecha.get(Calendar.MINUTE);
-            int hora = fecha.get(Calendar.HOUR_OF_DAY);
+             
+             if(bandera==false){
+                 
+                 
+                 System.out.println("no se encontro lo solicitado");
+                 
+             }
 
-            System.out.println(campos[2]+ " "+hora+":"+minuto);
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Operaciones.class.getName()).log(Level.SEVERE, null, ex);
         }
