@@ -1,3 +1,4 @@
+package proyectohotel;
 import java.io.*;
 import java.util.Date;
 import java.util.Calendar;
@@ -6,6 +7,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Operaciones extends ArchivoEntrada {
     private int max_personas = 0;
@@ -178,9 +181,34 @@ public class Operaciones extends ArchivoEntrada {
 
     }
 
+<<<<<<< HEAD
         
     public void Cancelar(){
 
+=======
+
+    public void Cancelar() throws IOException  {
+        
+         BufferedReader in;
+        try {
+            in = new BufferedReader(new FileReader("Reservar.csv"));
+            String line=" ";
+             
+             java.util.Scanner scanner = new Scanner(System.in);
+             System.out.println("ingrese rut a buscar: ");
+             String request = scanner.next();
+             while((line = in.readLine())!= null){
+                if(line.contains(request)){
+                 String[] campos = line.split(";");
+                     System.out.print(campos[2]);
+                     System.out.println("\n");
+                     }
+             }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Operaciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+>>>>>>> 0184f99ca665db6cdea61b1e0181a07ed7224573
     }
     public void Chek_in() {
         int minuto = fecha.get(Calendar.MINUTE);

@@ -1,3 +1,5 @@
+package proyectohotel;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +43,7 @@ public class ArchivoEntrada extends Persona {
     public void Inicializar_in() {
         try {
             FileWriter fichero = new FileWriter("Reservar.csv");
-            fichero.write("NombreTitular;ApellidoTitular;RutTitular;NombreAcompanante;ApellidoAcompanante;RutAcompanante;Grupo;FechaEntrada;FechaSalida;Hora;Titular\n");
+            fichero.write("NombreTitular;ApellidoTitular;RutTitular;NombreAcompanante;ApellidoAcompanante;RutAcompanante;Grupo;FechaEntrada;FechaSalida;Hora\n");
             fichero.close();
         } catch (IOException ex) {
         }
@@ -189,7 +191,7 @@ public class ArchivoEntrada extends Persona {
 
     }
 
-    public void Operaciones_in() {
+    public void Operaciones_in() throws IOException {
         Operaciones o = new Operaciones();
         Scanner entrada = new Scanner(System.in);
 
