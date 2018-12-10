@@ -178,27 +178,9 @@ public class Operaciones extends ArchivoEntrada {
 
     }
 
-<<<<<<< HEAD
-    public void Cancelar() {
- 
-        System.out.println("cancelo");
+        
+    public void Cancelar(){
 
-=======
-    public void Cancelar() throws IOException {
-        BufferedReader in = new BufferedReader(new FileReader("Reservar.csv"));
-        String line=" ";
-            
-            java.util.Scanner scanner = new Scanner(System.in);
-            System.out.println("ingrese rut a buscar: ");
-            String request = scanner.next();
-            while((line = in.readLine())!= null){
-        if(line.contains(request)){
-                String[] campos = line.split(";");
-                    System.out.print(campos[2]);
-                    System.out.println("\n");
-                    }
-            }
->>>>>>> 9b8ee3161c27896cdc24b37538d3e77cd9562625
     }
     public void Chek_in() {
         int minuto = fecha.get(Calendar.MINUTE);
