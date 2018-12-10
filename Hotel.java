@@ -1,8 +1,9 @@
+import java.io.*;
 import java.util.Scanner;
 
 public class Hotel {
 
-        public static void main(String[] args) {
+        public static void main(String[] args) throws IOException {
                 ArchivoEntrada a = new ArchivoEntrada();
                 a.Inicializar_in();
                 Scanner entrada = new Scanner(System.in);
@@ -22,7 +23,7 @@ public class Hotel {
 
                         switch (op) {
                         case 1:
-                                //a.Inicializar_in();
+                                a.Inicializar_in();
                                 break;
                         case 2:
                                 a.Precios_in();
