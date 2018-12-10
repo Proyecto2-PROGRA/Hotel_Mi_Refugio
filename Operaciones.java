@@ -121,7 +121,6 @@ public class Operaciones extends ArchivoEntrada {
             String acompananteNombre=" ";
             String acompananteApellido=" ";
             String tipo=" ";
-            int rut_acompanante=" ";
             int Hora=0;
             if (i == 0) {
                 System.out.print("Ingrese el nombre del titular: ");
@@ -158,9 +157,8 @@ public class Operaciones extends ArchivoEntrada {
                 }
             }
             try {
-                FileWriter fichero = new FileWriter("Reservar.csv");
-                fichero.append(titularNombre+";"+titularApellido+rutTitular+";"+acompananteNombre+";"+acompananteApellido+";"+rutAcompanante+";"+tipo+";"+fechaEntrada+";"+fechaSalida+";"+Hora+"\n");
-                fichero.write("\r\n");
+                FileWriter fichero = new FileWriter("Reservar.csv", true);
+                fichero.write(titularNombre+";"+titularApellido+";"+rutTitular+";"+acompananteNombre+";"+acompananteApellido+";"+rutAcompanante+";"+tipo+";"+fechaLlegada+";"+fechaSalida+";"+Hora+"\n");
                 fichero.close();
             } catch (IOException ex) {
             }
@@ -217,7 +215,7 @@ public class Operaciones extends ArchivoEntrada {
 
             fecha = sc.nextLine();
 
-            if (formato.equals("aa")) {
+            if (formato.equals("dd")) {
                 df = new SimpleDateFormat("dd");
             } else if (formato.equals("mm")) {
                 df = new SimpleDateFormat("MM");
