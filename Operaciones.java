@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.Scanner;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import java.text.SimpleDateFormat;
 
@@ -28,6 +30,7 @@ public class Operaciones extends ArchivoEntrada {
     public void Reservar() {
 
         System.out.println("Ingresar Fecha de llegada");
+        
 
         String dia_llegada;
         String mes_llegada;
@@ -115,6 +118,10 @@ public class Operaciones extends ArchivoEntrada {
         int op_edad;
         for (int i = 0; i < personas; i++) {
 
+
+            int minuto = fecha.get(Calendar.MINUTE);
+            int hora = fecha.get(Calendar.HOUR_OF_DAY);
+
             String titularNombre=" ";
             String titularApellido=" ";
             int rutTitular=0;
@@ -122,7 +129,7 @@ public class Operaciones extends ArchivoEntrada {
             String acompananteNombre=" ";
             String acompananteApellido=" ";
             String tipo=" ";
-            int Hora=0;
+            String Titular=" ";
 
             if (i == 0) {
                 System.out.print("Ingrese el nombre del titular: ");
@@ -134,6 +141,7 @@ public class Operaciones extends ArchivoEntrada {
                 System.out.print("Ingrese el RUT del titular: ");
                 rutTitular = entrada_1.nextInt();
                 tipo = "A";
+                Titular="Titular";
 
             } else if (i != 0) {
                 System.out.println("Ingresar si es adulto o nino(menor de 10)");
@@ -160,7 +168,7 @@ public class Operaciones extends ArchivoEntrada {
             }
             try {
                 FileWriter fichero = new FileWriter("Reservar.csv", true);
-                fichero.write(titularNombre+";"+titularApellido+";"+rutTitular+";"+acompananteNombre+";"+acompananteApellido+";"+rutAcompanante+";"+tipo+";"+fechaLlegada+";"+fechaSalida+";"+Hora+"\n");
+                fichero.write(titularNombre+";"+titularApellido+";"+rutTitular+";"+acompananteNombre+";"+acompananteApellido+";"+rutAcompanante+";"+tipo+";"+fechaLlegada+";"+fechaSalida+";"+hora+":"+minuto+";"+Titular+"\n");
                 fichero.close();
             } catch (IOException ex) {
             }
@@ -171,16 +179,21 @@ public class Operaciones extends ArchivoEntrada {
     }
 
     public void Cancelar() {
+ 
         System.out.println("cancelo");
 
     }
 
     public void Chek_in() {
+        int minuto = fecha.get(Calendar.MINUTE);
+        int hora = fecha.get(Calendar.HOUR_OF_DAY);
         System.out.println("realizo check-in");
 
     }
 
     public void Chek_out() {
+        int minuto = fecha.get(Calendar.MINUTE);
+        int hora = fecha.get(Calendar.HOUR_OF_DAY);
         System.out.println("realizo check-out");
 
     }
