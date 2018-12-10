@@ -7,23 +7,20 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class ArchivoEntrada extends Persona {
-    
+
     /*
-    Date fecha = new Date();
-    SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy");
-    String fechanueva = sdf.format(fecha);
-    */
+     * Date fecha = new Date(); SimpleDateFormat sdf = new
+     * SimpleDateFormat("dd MM yyyy"); String fechanueva = sdf.format(fecha);
+     */
 
     Calendar fecha = Calendar.getInstance();
 
     protected int anio = fecha.get(Calendar.YEAR);
-    protected int mes = fecha.get(Calendar.MONTH)+1;
+    protected int mes = fecha.get(Calendar.MONTH) + 1;
     protected int dia = fecha.get(Calendar.DAY_OF_MONTH);
-    
-    
-    
+
     protected String ValorHotel;
-    //protected String Fecha = fechanueva.toString();
+    // protected String Fecha = fechanueva.toString();
     protected String Habitaciones;
     protected String Piso;
     protected String Servicio;
@@ -46,16 +43,16 @@ public class ArchivoEntrada extends Persona {
             FileWriter fichero = new FileWriter("Reservar.csv");
             fichero.append("Nombre;Apellido;Rut;Grupo;FechaEntrada;FechaSalida;Hora");
             fichero.write("\r\n");
-           } catch (IOException ex) {
+        } catch (IOException ex) {
         }
-        
+
         ValorHotel = "100250.00";
         try {
             FileWriter fichero = new FileWriter("inicializar.in.txt");
             fichero.append(ValorHotel);
             fichero.write("\r\n");
 
-            fichero.write(anio + " " + mes+ " " + dia);
+            fichero.write(anio + " " + mes + " " + dia);
             fichero.append("\r\n");
 
             NumeroPiso = (int) (Math.random() * 10) + 1;
@@ -133,7 +130,7 @@ public class ArchivoEntrada extends Persona {
             BR.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-            
+
         }
 
     }
@@ -189,21 +186,21 @@ public class ArchivoEntrada extends Persona {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
+
     }
 
     public void Operaciones_in() {
         Operaciones o = new Operaciones();
         Scanner entrada = new Scanner(System.in);
- 
+
         int op;
-        do{
+        do {
             System.out.println("\t***************************************");
             System.out.println("\t           MENU OPERACIONES             ");
             System.out.println("\t***************************************");
             System.out.println("\t 1. Finalizar Dia");
             System.out.println("\t 2. Reservar ");
-            System.out.println("\t 3. Cancelar una reservación");
+            System.out.println("\t 3. Cancelar una reservacion");
             System.out.println("\t 4. Realizar el Check-in ");
             System.out.println("\t 5. Realizar el Check-out ");
             System.out.println("\t 6. Comer en el restaurante ");
@@ -213,49 +210,48 @@ public class ArchivoEntrada extends Persona {
             System.out.println("\t***************************************");
             System.out.print("\tIngrese una opcion: ");
             op = entrada.nextInt();
- 
-            switch(op){
-                
-                case 1: 
-                        o.FinalizarDia();
-                        break;
-                        
-                case 2: 
-                        o.Reservar();
-                        break;
-                        
-                case 3: 
-                        o.Cancelar();
-                        break;
-                        
-                case 4: 
-                        o.Chek_in();
-                        break;
-                        
-                case 5: 
-                        o.Chek_out();
-                        break;
-                        
-                case 6: 
-                        o.Comer();
-                        break;
-                        
-                case 7: 
-                        o.SolicitarServicios();
-                        break;
-                case 8: 
-                        o.Reportes();
-                        break;
-                case 9: 
-                        
-                        break;
-                        
-                default:
-                    System.out.println(" Opcion no valida.");
+
+            switch (op) {
+
+            case 1:
+                o.FinalizarDia();
+                break;
+
+            case 2:
+                o.Reservar();
+                break;
+
+            case 3:
+                o.Cancelar();
+                break;
+
+            case 4:
+                o.Chek_in();
+                break;
+
+            case 5:
+                o.Chek_out();
+                break;
+
+            case 6:
+                o.Comer();
+                break;
+
+            case 7:
+                o.SolicitarServicios();
+                break;
+            case 8:
+                o.Reportes();
+                break;
+            case 9:
+
+                break;
+
+            default:
+                System.out.println(" Opcion no valida.");
             }
- 
-        }while(op!=9);   
+
+        } while (op != 9);
     }
-        
 
 }
