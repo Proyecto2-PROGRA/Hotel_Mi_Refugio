@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.Date;
 import java.util.Calendar;
@@ -32,14 +31,6 @@ public class Operaciones extends ArchivoEntrada {
     public void Reservar() {
 
         System.out.println("Ingresar Fecha de llegada");
-        
-        try {
-            FileWriter lector = new FileWriter("Reservar.csv", true); 
-            BufferedWriter BR = new BufferedWriter(lector);
-            
-            
-        } catch (Exception e) {} 
-
 
         String dia_llegada;
         String mes_llegada;
@@ -48,8 +39,6 @@ public class Operaciones extends ArchivoEntrada {
         String dia_salida;
         String mes_salida;
         String anio_salida;
-
-         
 
         System.out.println("Ingrese la fecha de llegada");
 
@@ -62,17 +51,25 @@ public class Operaciones extends ArchivoEntrada {
         mes_salida = IngresoFecha("mm");
         anio_salida = IngresoFecha("aaaa");
 
-        String fechaLlegada, fechaSalida ;
+        String fechaLlegada, fechaSalida;
 
-        fechaLlegada = dia_llegada+" "+mes_llegada+" "+anio_llegada;
-        fechaSalida = dia_salida+" "+mes_salida+" "+anio_salida;
+        fechaLlegada = dia_llegada + " " + mes_llegada + " " + anio_llegada;
+        fechaSalida = dia_salida + " " + mes_salida + " " + anio_salida;
 
-        System.out.println(fechaLlegada+" "+fechaSalida);
+        System.out.println(fechaLlegada + " " + fechaSalida);
+        ////////////////////////////////////////////////////////////////////////////////
 
-        PrintWriter pv = new PrintWriter(BR);
-        pv.println(fechaLlegada+";"+fechaSalida);
-        pv.flush();
+        try {
+            FileWriter lector = new FileWriter("Reservar.csv", true);
+            BufferedWriter BR = new BufferedWriter(lector);
+            PrintWriter pv = new PrintWriter(BR);
+            pv.println(fechaLlegada + ";" + fechaSalida);
+            pv.flush();
 
+        } catch (Exception e) {
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////
         int op;
         do {
             System.out.println("\t**************************************************");
