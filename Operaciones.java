@@ -6,11 +6,9 @@ import java.util.Scanner;
 
 import java.text.SimpleDateFormat;
 
-
-
 public class Operaciones extends ArchivoEntrada {
-    private int max_personas=0;
-    private int personas=0;
+    private int max_personas = 0;
+    private int personas = 0;
     private String titular;
     private int rut_titular;
     private String acompanante;
@@ -25,116 +23,115 @@ public class Operaciones extends ArchivoEntrada {
     }
 
     public void FinalizarDia() {
-        
 
         fecha.add(Calendar.DAY_OF_WEEK, 1);
         dia = fecha.get(Calendar.DAY_OF_MONTH);
-
-        
 
     }
 
     public void Reservar() {
 
         System.out.println("Ingresar Fecha de llegada");
-        
+
         String dia_llegada;
         String mes_llegada;
         String anio_llegada;
-        
+
         dia_llegada = IngresoFecha("dd");
         mes_llegada = IngresoFecha("mm");
         anio_llegada = IngresoFecha("aaaa");
-        System.out.println(dia_llegada+" "+mes_llegada+" "+anio_llegada);
-
+        System.out.println(dia_llegada + " " + mes_llegada + " " + anio_llegada);
 
         int op;
-        do{
+        do {
             System.out.println("\t**************************************************");
             System.out.println("\t     -----> Tipo de habitacion a reservar <----- ");
             System.out.println("\t**************************************************");
-            System.out.println("\t Opcion|Tipo de Habitación|Nro. de camas|Nro. máximo personas");
+            System.out.println("\t Opcion|Tipo de Habitacion|Nro. de camas|Nro. maximo personas");
             System.out.println("\t 1.     Individual         1             1");
             System.out.println("\t 2.     Matrimonial        1             2");
             System.out.println("\t 3.     Doble              2 + 1         3");
-            System.out.println("\t 4.     Cuádruple          4             4");
+            System.out.println("\t 4.     Cuadruple          4             4");
             System.out.println("\t 5.     Suite              7 + 1         10");
             System.out.println("\t**************************************************");
             System.out.print("\tIngrese una opcion: ");
             op = entrada.nextInt();
- 
-            switch(op){
-                case 1: max_personas = 1;
-                        break;
-                case 2: max_personas = 2;
-                        break;
-                case 3: max_personas = 3;
-                        break;
-                case 4: max_personas = 4; 
-                        break;
-                case 5: max_personas = 10; 
-                        break;
-                default:
-                    System.out.println(" Opcion no valida.");
+
+            switch (op) {
+            case 1:
+                max_personas = 1;
+                break;
+            case 2:
+                max_personas = 2;
+                break;
+            case 3:
+                max_personas = 3;
+                break;
+            case 4:
+                max_personas = 4;
+                break;
+            case 5:
+                max_personas = 10;
+                break;
+            default:
+                System.out.println(" Opcion no valida.");
             }
- 
-        }while(max_personas == 0);
- /////////////////////////////////////////////////7        
-        bandera =false;
-        int personas=0;
-        int op_persona=0;
+
+        } while (max_personas == 0);
+        ///////////////////////////////////////////////// 7
+        bandera = false;
+        int personas = 0;
+        int op_persona = 0;
         do {
             System.out.print("Ingrese la cantidad de personas a hospedar: ");
             personas = entrada.nextInt();
-            if(personas <= max_personas){
-                bandera=true;
-            }else if(personas > max_personas){
+            if (personas <= max_personas) {
+                bandera = true;
+            } else if (personas > max_personas) {
                 System.out.println("La cantidad de personas es mayor a lo soportado por esta abitacion");
                 System.out.println("Opcion");
                 System.out.println("1. Volver a escoger la abitacion");
                 System.out.println("2. Ingresar nuevamente la cantidad de personas a hospedar");
                 op_persona = entrada.nextInt();
-                if(op_persona == 1 ){
+                if (op_persona == 1) {
                     Reservar();
                 }
             }
-        } while (bandera!=true);
-  
-    int op_edad;
-        for(int i=0; i < personas; i++){
+        } while (bandera != true);
 
-            if(i==0) {
+        int op_edad;
+        for (int i = 0; i < personas; i++) {
+
+            if (i == 0) {
                 System.out.print("Ingrese el nombre del titular: ");
                 titular = entrada.next();
                 System.out.print("Ingrese el RUT del titular: ");
                 rut_titular = entrada_1.nextInt();
-                
-            }
-            else if(i!=0){
-                System.out.println("Ingresar si es adulto o niño(menor de 10)");
+
+            } else if (i != 0) {
+                System.out.println("Ingresar si es adulto o nino(menor de 10)");
                 System.out.println("1. Adulto");
-                System.out.println("2. Niño");
+                System.out.println("2. Nino");
                 op_edad = entrada.nextInt();
-                if(op_edad==1){
-                    System.out.println("Ingrese el nombre del acompañante");
+                if (op_edad == 1) {
+                    System.out.println("Ingrese el nombre del acompanante");
                     acompanante = entrada.next();
-                    System.out.println("Ingrese el RUT del acompañante");
+                    System.out.println("Ingrese el RUT del acompanante");
                     rut_acompanante = entrada_1.nextInt();
-                }else{
-                    System.out.println("Ingrese el nombre del niño");
+                } else {
+                    System.out.println("Ingrese el nombre del nino");
                     acompanante = entrada.next();
                     nino++;
                 }
             }
         }
 
-
-        System.out.println("Reservó");
+        System.out.println("Reservo");
 
     }
 
     public void Cancelar() {
-        System.out.println("canceló");
+        System.out.println("cancelo");
 
     }
 
@@ -149,9 +146,8 @@ public class Operaciones extends ArchivoEntrada {
     }
 
     public void Comer() {
-        System.out.println("comió");
+        System.out.println("comio");
 
-        
     }
 
     public void SolicitarServicios() {
@@ -163,52 +159,52 @@ public class Operaciones extends ArchivoEntrada {
         System.out.println("reporte realizado");
 
     }
-    
-    public String IngresoFecha(String formato){
+
+    public String IngresoFecha(String formato) {
         String fecha;
         SimpleDateFormat df;
         Date testDate;
         String date;
-        bandera=false;
+        bandera = false;
         Scanner sc = new Scanner(System.in);
-        bandera=false;
+        bandera = false;
         do {
-            System.out.println("Introduzca la fecha con formato "+ formato );
-            
+            System.out.println("Introduzca la fecha con formato " + formato);
+
             fecha = sc.nextLine();
-            
-            if(formato.equals("aa")){
+
+            if (formato.equals("aa")) {
                 df = new SimpleDateFormat("dd");
-            }
-            else if (formato.equals("mm")) {
+            } else if (formato.equals("mm")) {
                 df = new SimpleDateFormat("MM");
 
             } else {
                 df = new SimpleDateFormat("yyyy");
-                
+
             }
-            
+
             testDate = null;
             date = fecha;
-            try{
+            try {
                 testDate = df.parse(date);
-                System.out.println("Ahora hemos creado un objeto date con la fecha indicada, "+testDate);
-            } catch (Exception e){ System.out.println("invalid format");
-                bandera=false;
+                System.out.println("Ahora hemos creado un objeto date con la fecha indicada, " + testDate);
+            } catch (Exception e) {
+                System.out.println("invalid format");
+                bandera = false;
             }
-    
-            if (!df.format(testDate).equals(date)){
+
+            if (!df.format(testDate).equals(date)) {
                 System.out.println("invalid date!!");
-                bandera=false;
+                bandera = false;
             } else {
                 System.out.println("valid date");
                 System.out.println(date);
-                bandera=true;
+                bandera = true;
             }
-        } while (bandera!=true);
-        
+        } while (bandera != true);
+
         return fecha;
 
     }
-  
+
 }
