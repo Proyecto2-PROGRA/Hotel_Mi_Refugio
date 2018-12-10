@@ -114,6 +114,7 @@ public class Operaciones extends ArchivoEntrada {
 
         int op_edad;
         for (int i = 0; i < personas; i++) {
+<<<<<<< HEAD
             String titularNombre = " ";
             String titularApellido = " ";
             int rutTitular = 0;
@@ -123,6 +124,16 @@ public class Operaciones extends ArchivoEntrada {
             String tipo = " ";
             int rut_acompanante = 0;
             int Hora = 0;
+=======
+            String titularNombre=" ";
+            String titularApellido=" ";
+            int rutTitular=0;
+            int rutAcompanante=0;
+            String acompananteNombre=" ";
+            String acompananteApellido=" ";
+            String tipo=" ";
+            int Hora=0;
+>>>>>>> f57d13f575a81dad834a83b9d3799edef3aeb61d
             if (i == 0) {
                 System.out.print("Ingrese el nombre del titular: ");
                 titularNombre = entrada.next();
@@ -158,11 +169,16 @@ public class Operaciones extends ArchivoEntrada {
                 }
             }
             try {
+<<<<<<< HEAD
                 FileWriter fichero = new FileWriter("Reservar.csv");
                 fichero.append(titularNombre + ";" + titularApellido + rutTitular + ";" + acompananteNombre + ";"
                         + acompananteApellido + ";" + rutAcompanante + ";" + tipo + ";" + fechaEntrada + ";"
                         + fechaSalida + ";" + Hora + "\n");
                 fichero.write("\r\n");
+=======
+                FileWriter fichero = new FileWriter("Reservar.csv", true);
+                fichero.write(titularNombre+";"+titularApellido+";"+rutTitular+";"+acompananteNombre+";"+acompananteApellido+";"+rutAcompanante+";"+tipo+";"+fechaLlegada+";"+fechaSalida+";"+Hora+"\n");
+>>>>>>> f57d13f575a81dad834a83b9d3799edef3aeb61d
                 fichero.close();
             } catch (IOException ex) {
             }
@@ -215,7 +231,7 @@ public class Operaciones extends ArchivoEntrada {
 
             fecha = sc.nextLine();
 
-            if (formato.equals("aa")) {
+            if (formato.equals("dd")) {
                 df = new SimpleDateFormat("dd");
             } else if (formato.equals("mm")) {
                 df = new SimpleDateFormat("MM");
