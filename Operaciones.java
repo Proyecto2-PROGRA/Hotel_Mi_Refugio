@@ -114,6 +114,17 @@ public class Operaciones extends ArchivoEntrada {
 
         int op_edad;
         for (int i = 0; i < personas; i++) {
+<<<<<<< HEAD
+            String titularNombre = " ";
+            String titularApellido = " ";
+            int rutTitular = 0;
+            int rutAcompanante = 0;
+            String acompananteNombre = " ";
+            String acompananteApellido = " ";
+            String tipo = " ";
+            int rut_acompanante = 0;
+            int Hora = 0;
+=======
             String titularNombre=" ";
             String titularApellido=" ";
             int rutTitular=0;
@@ -122,6 +133,7 @@ public class Operaciones extends ArchivoEntrada {
             String acompananteApellido=" ";
             String tipo=" ";
             int Hora=0;
+>>>>>>> f57d13f575a81dad834a83b9d3799edef3aeb61d
             if (i == 0) {
                 System.out.print("Ingrese el nombre del titular: ");
                 titularNombre = entrada.next();
@@ -131,7 +143,7 @@ public class Operaciones extends ArchivoEntrada {
 
                 System.out.print("Ingrese el RUT del titular: ");
                 rutTitular = entrada_1.nextInt();
-                tipo="A";
+                tipo = "A";
 
             } else if (i != 0) {
                 System.out.println("Ingresar si es adulto o nino(menor de 10)");
@@ -146,27 +158,31 @@ public class Operaciones extends ArchivoEntrada {
                     acompananteApellido = entrada.next();
                     System.out.println("Ingrese el RUT del acompanante");
                     rutAcompanante = entrada_1.nextInt();
-                    tipo="A";
+                    tipo = "A";
                 } else {
                     System.out.println("Ingrese el nombre del nino");
                     acompananteNombre = entrada.next();
                     System.out.println("Ingrese el apellido del nino");
                     acompananteApellido = entrada.next();
                     nino++;
-                    tipo="N";
+                    tipo = "N";
                 }
             }
             try {
+<<<<<<< HEAD
+                FileWriter fichero = new FileWriter("Reservar.csv");
+                fichero.append(titularNombre + ";" + titularApellido + rutTitular + ";" + acompananteNombre + ";"
+                        + acompananteApellido + ";" + rutAcompanante + ";" + tipo + ";" + fechaEntrada + ";"
+                        + fechaSalida + ";" + Hora + "\n");
+                fichero.write("\r\n");
+=======
                 FileWriter fichero = new FileWriter("Reservar.csv", true);
                 fichero.write(titularNombre+";"+titularApellido+";"+rutTitular+";"+acompananteNombre+";"+acompananteApellido+";"+rutAcompanante+";"+tipo+";"+fechaLlegada+";"+fechaSalida+";"+Hora+"\n");
+>>>>>>> f57d13f575a81dad834a83b9d3799edef3aeb61d
                 fichero.close();
             } catch (IOException ex) {
             }
         }
-
-        
-
-
 
         System.out.println("Reservo");
 
