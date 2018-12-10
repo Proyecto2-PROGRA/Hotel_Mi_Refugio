@@ -180,6 +180,11 @@ public class Operaciones extends ArchivoEntrada {
 
     }
 
+<<<<<<< HEAD
+        
+    public void Cancelar(){
+
+=======
 
     public void Cancelar() throws IOException  {
         
@@ -202,6 +207,7 @@ public class Operaciones extends ArchivoEntrada {
             Logger.getLogger(Operaciones.class.getName()).log(Level.SEVERE, null, ex);
         }
      
+>>>>>>> 0184f99ca665db6cdea61b1e0181a07ed7224573
     }
     public void Chek_in() {
         int minuto = fecha.get(Calendar.MINUTE);
