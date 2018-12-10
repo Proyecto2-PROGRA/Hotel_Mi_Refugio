@@ -8,10 +8,7 @@ import java.text.SimpleDateFormat;
 public class Operaciones extends ArchivoEntrada {
     private int max_personas = 0;
     private int personas = 0;
-    private String titular;
-    private int rut_titular;
-    private String acompanante;
-    private int rut_acompanante;
+
     private int nino;
     private Boolean bandera = false;
 
@@ -57,18 +54,6 @@ public class Operaciones extends ArchivoEntrada {
         fechaSalida = dia_salida + " " + mes_salida + " " + anio_salida;
 
         System.out.println(fechaLlegada + " " + fechaSalida);
-        ////////////////////////////////////////////////////////////////////////////////
-
-        try {
-            FileWriter lector = new FileWriter("Reservar.csv", true);
-            BufferedWriter BR = new BufferedWriter(lector);
-            PrintWriter pv = new PrintWriter(BR);
-            pv.println(fechaLlegada + ";" + fechaSalida);
-            pv.flush();
-
-        } catch (Exception e) {
-        }
-
         ////////////////////////////////////////////////////////////////////////////////
         int op;
         do {
@@ -129,12 +114,25 @@ public class Operaciones extends ArchivoEntrada {
 
         int op_edad;
         for (int i = 0; i < personas; i++) {
-
+            String titularNombre=" ";
+            String titularApellido=" ";
+            int rutTitular=0;
+            int rutAcompanante=0;
+            String acompananteNombre=" ";
+            String acompananteApellido=" ";
+            String tipo=" ";
+            int rut_acompanante=" ";
+            int Hora=0;
             if (i == 0) {
                 System.out.print("Ingrese el nombre del titular: ");
-                titular = entrada.next();
+                titularNombre = entrada.next();
+
+                System.out.print("Ingrese el apellido del titular: ");
+                titularApellido = entrada.next();
+
                 System.out.print("Ingrese el RUT del titular: ");
-                rut_titular = entrada_1.nextInt();
+                rutTitular = entrada_1.nextInt();
+                tipo="A";
 
             } else if (i != 0) {
                 System.out.println("Ingresar si es adulto o nino(menor de 10)");
@@ -143,16 +141,34 @@ public class Operaciones extends ArchivoEntrada {
                 op_edad = entrada.nextInt();
                 if (op_edad == 1) {
                     System.out.println("Ingrese el nombre del acompanante");
-                    acompanante = entrada.next();
+                    acompananteNombre = entrada.next();
+
+                    System.out.println("Ingrese el apellido del acompanante");
+                    acompananteApellido = entrada.next();
                     System.out.println("Ingrese el RUT del acompanante");
-                    rut_acompanante = entrada_1.nextInt();
+                    rutAcompanante = entrada_1.nextInt();
+                    tipo="A";
                 } else {
                     System.out.println("Ingrese el nombre del nino");
-                    acompanante = entrada.next();
+                    acompananteNombre = entrada.next();
+                    System.out.println("Ingrese el apellido del nino");
+                    acompananteApellido = entrada.next();
                     nino++;
+                    tipo="N";
                 }
             }
+            try {
+                FileWriter fichero = new FileWriter("Reservar.csv");
+                fichero.append(titularNombre+";"+titularApellido+rutTitular+";"+acompananteNombre+";"+acompananteApellido+";"+rutAcompanante+";"+tipo+";"+fechaEntrada+";"+fechaSalida+";"+Hora+"\n");
+                fichero.write("\r\n");
+                fichero.close();
+            } catch (IOException ex) {
+            }
         }
+
+        
+
+
 
         System.out.println("Reservo");
 
