@@ -290,7 +290,7 @@ public class Operaciones extends ArchivoEntrada {
  //////////////////////////////////////////////////////////////////
     public void Comer() throws FileNotFoundException {
         try {
-            FileWriter fichero = new FileWriter("Comida.csv",true);
+            FileWriter fichero = new FileWriter("Comida.csv");
             
             fichero.close();
         } catch (IOException ex) {
@@ -305,7 +305,7 @@ public class Operaciones extends ArchivoEntrada {
             
             for(int i=0; i<cantElementos;i++){
                 bandera=false;
-                FileWriter fichero = new FileWriter("comida.csv");
+                FileWriter fichero = new FileWriter("comida.csv", true);
                 do{
                     System.out.println("\t**************************************************");
                     System.out.println("\t     -----> Tipo de plato a reservar <----- ");
