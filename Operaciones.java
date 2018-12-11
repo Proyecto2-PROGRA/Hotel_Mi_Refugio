@@ -283,13 +283,35 @@ public class Operaciones extends ArchivoEntrada {
 
     }
 
+ //////////////////////////////////////////////////////////////////
+    public void Comer() throws FileNotFoundException {
+        try {
+            FileWriter fichero = new FileWriter("Comida.csv");
+            
+            fichero.close();
+        } catch (IOException ex) {
+        }
+        
+        int cantElementos;
+        System.out.print("ingrese cantidad de elementos del menu: ");
+        cantElementos=entrada.nextInt();
 
-    public void Comer() {
+        //////////////////////////////////////////////////////////////////
+        try {
+            for(int i=0; i<cantElementos;i++){
+                FileWriter fichero = new FileWriter("comida.csv");
+                    System.out.println("1) plato 1\n2) palto 2\n3)plato 3");
+            //fichero.write("\n");
+                System.out.println("hola");
+            fichero.close();
+            }
+        } catch (IOException ex) {
+        }
 
         System.out.println("comio");
 
     }
-
+ //////////////////////////////////////////////////////////////////
     public void SolicitarServicios() {
         System.out.println("solicito servicios");
 
