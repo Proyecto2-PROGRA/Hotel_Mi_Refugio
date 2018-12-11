@@ -1,5 +1,4 @@
 
-
 import java.io.*;
 import java.util.Date;
 import java.util.Calendar;
@@ -290,7 +289,7 @@ public class Operaciones extends ArchivoEntrada {
  //////////////////////////////////////////////////////////////////
     public void Comer() throws FileNotFoundException {
         try {
-            FileWriter fichero = new FileWriter("Comida.csv",true);
+            FileWriter fichero = new FileWriter("Comida.csv");
             
             fichero.close();
         } catch (IOException ex) {
@@ -305,7 +304,8 @@ public class Operaciones extends ArchivoEntrada {
             
             for(int i=0; i<cantElementos;i++){
                 bandera=false;
-                FileWriter fichero = new FileWriter("comida.csv");
+                FileWriter fichero = new FileWriter("comida.csv",true);
+
                 do{
                     System.out.println("\t**************************************************");
                     System.out.println("\t     -----> Tipo de plato a reservar <----- ");
@@ -318,17 +318,17 @@ public class Operaciones extends ArchivoEntrada {
                     System.out.print("\tIngrese una opcion: ");
                     int varSeleccion;
                     varSeleccion=entrada.nextInt();
+                    if(i==0){
+                    fichero.append(cantElementos+"\r\n");
+                }
+                    
                     switch(varSeleccion){
                         case 1: 
                                 fichero.write("ESP_C");
                                 fichero.append("\r\n");
-                                
-                                
-                                
                                 bandera=true;
                                 break;
-                        case 2: 
-                                
+                        case 2:                    
                                 fichero.write("LOM_M");
                                 fichero.append("\r\n");
                                 bandera=true;
@@ -355,9 +355,24 @@ public class Operaciones extends ArchivoEntrada {
                 }while(bandera!=true);
             //fichero.write("\n");
                 System.out.println("se agrego correctamente");
+                
             fichero.close();
             }
+            
         } catch (IOException ex) {
+        }
+                try {
+            FileReader lector = new FileReader("comida.csv");
+            BufferedReader BR = new BufferedReader(lector);
+
+            while ((cadena = BR.readLine()) != null) {
+                System.out.println(cadena);
+            }
+
+            BR.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
         }
 
 
