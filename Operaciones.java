@@ -378,11 +378,114 @@ public class Operaciones extends ArchivoEntrada {
 
     }
  //////////////////////////////////////////////////////////////////
-    public void SolicitarServicios() {
-        System.out.println("solicito servicios");
+    public void SolicitarServicios() throws IOException {
+        
+        
+        
+        try {
+            FileWriter fichero = new FileWriter("Servicios.csv");
+            
+            fichero.close();
+        } catch (IOException ex) {
+        }
+        /// //// /// ///
+         BufferedReader in;
+         
+        int cantElementos;
+        System.out.print("ingrese cantidad de elementos del menu: ");
+        cantElementos=entrada.nextInt();
+        
+        //////////////////////////////////////////////////////////////////
+        try {
+            
+            for(int i=0; i<cantElementos;i++){
+                bandera=false;
+                FileWriter fichero = new FileWriter("Servicios.csv",true);
+
+                do{
+                    in = new BufferedReader(new FileReader("Reservar.csv"));
+                                    String line=" ";
+
+                                     java.util.Scanner scanner = new Scanner(System.in);
+                                     System.out.println("ingrese rut a buscar: ");
+                                     String BuscarRut = scanner.next();
+                                     while((line = in.readLine())!= null){
+                                        if(line.contains(BuscarRut)){
+                                            bandera=true;
+                                         String[] campos = line.split(";");
+                                             System.out.print(campos[2]);
+                                             System.out.println("\n");
+                                             }
+
+                                    }
+
+                                     if(bandera==false){
+
+
+                                         System.out.println("no se encontro lo solicitado");
+
+                                     }
+                    System.out.println("\t**************************************************");
+                    System.out.println("\t     -----> Tipo de servicio a reservar <----- ");
+                    System.out.println("\t**************************************************");
+                    System.out.println("\t 1.     cama adicional");
+                    System.out.println("\t 2.     caja fuerte");
+      
+                    System.out.println("\t**************************************************");
+                    System.out.print("\tIngrese una opcion: ");
+                    int varSeleccion;
+                    varSeleccion=entrada.nextInt();
+                    if(i==0){
+   
+                    fichero.append(BuscarRut+"\r\n");
+                    fichero.append(cantElementos+"\r\n");
+                }
+                    
+                    switch(varSeleccion){
+                        case 1: 
+                                fichero.write("CAM_A");
+                                fichero.append("\r\n");
+                                bandera=true;
+                                break;
+                        case 2:                    
+                                fichero.write("CAJ_F");
+                                fichero.append("\r\n");
+                                bandera=true;
+                                break;
+        
+                        default:
+                            System.out.println(" Opcion no valida.");
+                    }
+
+
+
+                }while(bandera!=true);
+            //fichero.write("\n");
+                System.out.println("se agrego correctamente");
+                
+            fichero.close();
+            }
+            
+        } catch (IOException ex) {
+        }
+                try {
+            FileReader lector = new FileReader("Servicios.csv");
+            BufferedReader BR = new BufferedReader(lector);
+
+            while ((cadena = BR.readLine()) != null) {
+                System.out.println(cadena);
+            }
+
+            BR.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
+        }
+
 
     }
 
+    
     public void Reportes() {
         System.out.println("reporte realizado");
 
