@@ -232,6 +232,7 @@ public class Operaciones extends ArchivoEntrada {
     }
 
     public void Chek_out() {
+        
         BufferedReader in;
         try {
             in = new BufferedReader(new FileReader("Reservar.csv"));
