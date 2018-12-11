@@ -246,15 +246,12 @@ public class Operaciones extends ArchivoEntrada {
 
     }
 
-<<<<<<< HEAD
-    public void Chek_out() {
-        
-=======
+
     public void Chek_out()throws IOException {
         bandera=false;
         int minuto = fecha.get(Calendar.MINUTE);
         int hora = fecha.get(Calendar.HOUR_OF_DAY);
->>>>>>> 2c1ec46ea84a219d8f24d2f13a3794345bd233ed
+
         BufferedReader in;
         try {
             in = new BufferedReader(new FileReader("Reservar.csv"));
