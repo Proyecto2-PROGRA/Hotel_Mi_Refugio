@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.util.Date;
 import java.util.Calendar;
@@ -288,7 +289,7 @@ public class Operaciones extends ArchivoEntrada {
  //////////////////////////////////////////////////////////////////
     public void Comer() throws FileNotFoundException {
         try {
-            FileWriter fichero = new FileWriter("Comida.csv");
+            FileWriter fichero = new FileWriter("Comida.csv",true);
             
             fichero.close();
         } catch (IOException ex) {
@@ -297,20 +298,67 @@ public class Operaciones extends ArchivoEntrada {
         int cantElementos;
         System.out.print("ingrese cantidad de elementos del menu: ");
         cantElementos=entrada.nextInt();
-
+        
         //////////////////////////////////////////////////////////////////
         try {
+            
             for(int i=0; i<cantElementos;i++){
+                bandera=false;
                 FileWriter fichero = new FileWriter("comida.csv");
-                    System.out.println("1) plato 1\n2) palto 2\n3)plato 3");
+                do{
+                    System.out.println("\t**************************************************");
+                    System.out.println("\t     -----> Tipo de plato a reservar <----- ");
+                    System.out.println("\t**************************************************");
+                    System.out.println("\t 1.     Espaguetis a la Carbonara = $55.00 ");
+                    System.out.println("\t 2.     Lomito a la Mostaza = $71.50");
+                    System.out.println("\t 3.     Jugo light = $10.00");
+                    System.out.println("\t 4.     Malta = $6.00");
+                    System.out.println("\t**************************************************");
+                    System.out.print("\tIngrese una opcion: ");
+                    int varSeleccion;
+                    varSeleccion=entrada.nextInt();
+                    switch(varSeleccion){
+                        case 1: 
+                                fichero.write("ESP_C");
+                                fichero.append("\r\n");
+                                
+                                
+                                
+                                bandera=true;
+                                break;
+                        case 2: 
+                                
+                                fichero.write("LOM_M");
+                                fichero.append("\r\n");
+                                bandera=true;
+                                break;
+                        case 3: 
+                                
+                                fichero.write("JUG_L");
+                                fichero.append("\r\n");
+                                bandera=true;
+                                break;
+                        case 4: 
+                                
+                                fichero.write("MALTA");
+                                fichero.append("\r\n");
+                                bandera=true;
+                                break;
+        
+                        default:
+                            System.out.println(" Opcion no valida.");
+                    }
+
+
+
+                }while(bandera!=true);
             //fichero.write("\n");
-                System.out.println("hola");
+                System.out.println("se agrego correctamente");
             fichero.close();
             }
         } catch (IOException ex) {
         }
 
-        System.out.println("comio");
 
     }
  //////////////////////////////////////////////////////////////////
