@@ -478,7 +478,9 @@ public class Operaciones extends ArchivoEntrada {
                 }
                 
                 }while(bandera!=true);
-                        
+                if(bandera==true){
+                    break;
+                }
 
             }
             System.out.println("se agrego correctamente");
