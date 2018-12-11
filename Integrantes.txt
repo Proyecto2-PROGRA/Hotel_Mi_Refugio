@@ -1,0 +1,12 @@
+Integrantes:
+
+- Cesar Tapia Araya 20.091.118-0
+- Marcelo Leiton Valdes 19.773.118-4
+
+(el otro integrante se retiro de la carrera, trabajamos solo 2 en el proyecto)
+
+
+
+revisar el proyecto en github:
+
+https://github.com/Proyecto2-PROGRA/Hotel_Mi_Refugio.git
