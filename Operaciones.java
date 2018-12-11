@@ -304,12 +304,8 @@ public class Operaciones extends ArchivoEntrada {
             
             for(int i=0; i<cantElementos;i++){
                 bandera=false;
-<<<<<<< HEAD
+      
                 FileWriter fichero = new FileWriter("comida.csv", true);
-=======
-                FileWriter fichero = new FileWriter("comida.csv",true);
-
->>>>>>> da95ce43ae2b457173d012c5e8964216b07e97ee
                 do{
                     System.out.println("\t**************************************************");
                     System.out.println("\t     -----> Tipo de plato a reservar <----- ");
@@ -396,79 +392,101 @@ public class Operaciones extends ArchivoEntrada {
          BufferedReader in;
          
         int cantElementos;
-        System.out.print("ingrese cantidad de elementos del menu: ");
-        cantElementos=entrada.nextInt();
+        do {
+            System.out.print("ingrese cantidad de servicio a solicitar: ");
+            cantElementos=entrada.nextInt();
+            if(cantElementos<=2){
+                bandera=true;
+            }else{
+                System.out.println("El numero ingresado es mayor al esperado (max 2)");
+                bandera=false;
+            }
+        } while (bandera!=true);
+        
         
         //////////////////////////////////////////////////////////////////
         try {
-            
+
+        bandera=false;
+        FileWriter fichero = new FileWriter("Servicios.csv",true);
+
+        in = new BufferedReader(new FileReader("Reservar.csv"));
+        String line=" ";
+        java.util.Scanner scanner = new Scanner(System.in);
+           
+        System.out.println("ingrese rut a buscar: ");
+        String BuscarRut = scanner.next();
+           
+        while((line = in.readLine())!= null){
+            if(line.contains(BuscarRut)){
+                bandera=true;
+                String[] campos = line.split(";");
+                System.out.print(campos[2]);
+                System.out.println("\n");
+            }
+        }
+        if(bandera==false){
+            System.out.println("no se encontro el rut solicitado");
+
+        }else{
             for(int i=0; i<cantElementos;i++){
                 bandera=false;
-                FileWriter fichero = new FileWriter("Servicios.csv",true);
-
                 do{
-                    in = new BufferedReader(new FileReader("Reservar.csv"));
-                                    String line=" ";
+                
 
-                                     java.util.Scanner scanner = new Scanner(System.in);
-                                     System.out.println("ingrese rut a buscar: ");
-                                     String BuscarRut = scanner.next();
-                                     while((line = in.readLine())!= null){
-                                        if(line.contains(BuscarRut)){
-                                            bandera=true;
-                                         String[] campos = line.split(";");
-                                             System.out.print(campos[2]);
-                                             System.out.println("\n");
-                                             }
-
-                                    }
-
-                                     if(bandera==false){
-
-
-                                         System.out.println("no se encontro lo solicitado");
-
-                                     }
-                    System.out.println("\t**************************************************");
+                if(i==0){        
+                    fichero.append(BuscarRut+"\r\n");
+                    fichero.append(cantElementos+"\r\n");
+                }
+                if (cantElementos == 1) {
                     System.out.println("\t     -----> Tipo de servicio a reservar <----- ");
                     System.out.println("\t**************************************************");
                     System.out.println("\t 1.     cama adicional");
                     System.out.println("\t 2.     caja fuerte");
-      
+                            
                     System.out.println("\t**************************************************");
                     System.out.print("\tIngrese una opcion: ");
-                    int varSeleccion;
-                    varSeleccion=entrada.nextInt();
-                    if(i==0){
-   
-                    fichero.append(BuscarRut+"\r\n");
-                    fichero.append(cantElementos+"\r\n");
-                }
-                    
+
+                    int varSeleccion = entrada.nextInt();
                     switch(varSeleccion){
                         case 1: 
                                 fichero.write("CAM_A");
                                 fichero.append("\r\n");
                                 bandera=true;
+                                System.out.println("Se agrego cama");
                                 break;
                         case 2:                    
                                 fichero.write("CAJ_F");
                                 fichero.append("\r\n");
                                 bandera=true;
+                                System.out.println("Se agrego cama");
                                 break;
         
                         default:
                             System.out.println(" Opcion no valida.");
                     }
-
-
-
+                } else {
+                    fichero.write("CAM_A");
+                    fichero.append("\r\n");
+                    System.out.println("Se agrego cama");
+                    fichero.write("CAJ_F");
+                    fichero.append("\r\n");
+                    System.out.println("Se agrego caja fuerte");
+                    bandera=true;
+                    break;
+                    
+                }
+                
                 }while(bandera!=true);
-            //fichero.write("\n");
-                System.out.println("se agrego correctamente");
+                        
+
+            }
+            System.out.println("se agrego correctamente");
                 
             fichero.close();
-            }
+        }
+
+            
             
         } catch (IOException ex) {
         }
